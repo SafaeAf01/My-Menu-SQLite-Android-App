@@ -27,7 +27,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="148dp"
         android:fontFamily="@font/coming_soon"
-        android:text="@string/authentification"
+        android:text="@string/login"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="200dp"
         android:fontFamily="@font/coming_soon"
-        android:text="@string/login"
+        android:text="@string/password"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <Button
-        android:id="@+id/eSignup"
+        android:id="@+id/bSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="178dp"
