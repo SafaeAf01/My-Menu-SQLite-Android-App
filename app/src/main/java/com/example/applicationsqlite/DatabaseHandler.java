@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.Nullable;
 
@@ -13,7 +15,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "gestion_clients.db";
 
     private static final String TABLE_CLIENT = "client";
-
+    Client clientverif= new Client("null","null","null");
     public DatabaseHandler(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -44,12 +46,41 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 new String[] {"id", "name", "email", "password"},
                 "email=?", new String[]{ email },
                 null, null,null,null );
-        if (cursor != null)
+        if (cursor != null) {
+
             cursor.moveToFirst();
 
-        Client client = new Client(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            clientverif = new Client(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3));
 
-        return client;
+            return clientverif;
+
+        }
+        else {
+
+            return clientverif;
+        }
+    }
+
+    public List<Client> getAllClients() {
+        List<Client> clientList = new ArrayList<Client>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String sql = "SELECT * FROM " + TABLE_CLIENT;
+
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Client client =new Client();
+                client.setId(cursor.getInt(0));
+                client.setName(cursor.getString(1));
+                client.setEmail(cursor.getString(2));
+                client.setPassword(cursor.getString(3));
+                clientList.add(client);
+            } while (cursor.moveToNext());
+        }
+
+        return clientList;
     }
 
     public void addClient(Client client) {

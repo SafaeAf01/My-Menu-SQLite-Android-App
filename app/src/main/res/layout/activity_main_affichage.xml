@@ -4,7 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivityAffichage">
+
+    <TextView
+        android:id="@+id/tvAffichage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bAjouter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="14dp"
+        android:text="@string/bAjouter"
+        app:layout_constraintEnd_toStartOf="@+id/bModifier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAffichage" />
+
+    <Button
+        android:id="@+id/bModifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="19dp"
+        android:text="@string/bModifier"
+        app:layout_constraintEnd_toStartOf="@+id/bSupprimer"
+        app:layout_constraintStart_toEndOf="@+id/bAjouter"
+        app:layout_constraintTop_toBottomOf="@+id/tvAffichage" />
+
+    <Button
+        android:id="@+id/bSupprimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="41dp"
+        android:text="@string/bSupprimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bModifier"
+        app:layout_constraintTop_toBottomOf="@+id/tvAffichage" />
+
+    <Button
+        android:id="@+id/bRetour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/bretour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bSupprimer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,12 +11,17 @@ public class Client {
         this.email = email;
         Password = password;
     }
-
+    public Client() { }
     public Client(int id, String name, String email, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
         Password = password;
+    }
+
+    @Override
+    public String toString() {
+        return " Nom: "+getName()+" Email :"+getEmail()+" MDP: "+getPassword()+" \n ";
     }
 
     public void setId(int id) {
